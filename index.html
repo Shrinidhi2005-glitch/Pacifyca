@@ -1,174 +1,51 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pacifyca - St. Agnes College</title>
+<script>
+const menuItems = document.querySelectorAll(".sidebar ul li");
+const welcome = document.querySelector(".card");
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+menuItems.forEach(item => {
+  item.addEventListener("click", () => {
 
-    body{
-      background:#f4f6f9;
-    }
+    let text = item.innerText;
 
-    .navbar{
-      background:#7b1e3a;
-      color:white;
-      padding:15px 30px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .logo img{
-      width:50px;
-      height:50px;
-      border-radius:50%;
-      object-fit:cover;
-    }
-
-    .container{
-      display:flex;
-      height:calc(100vh - 80px);
-    }
-
-    .sidebar{
-      width:250px;
-      background:white;
-      padding:20px;
-      border-right:1px solid #ddd;
-    }
-
-    .sidebar h3{
-      margin-bottom:20px;
-      color:#7b1e3a;
-    }
-
-    .sidebar ul{
-      list-style:none;
-    }
-
-    .sidebar ul li{
-      padding:12px;
-      margin-bottom:10px;
-      background:#f5f5f5;
-      border-radius:8px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .sidebar ul li:hover{
-      background:#7b1e3a;
-      color:white;
-    }
-
-    .main{
-      flex:1;
-      padding:40px;
-    }
-
-    .card{
-      background:white;
-      padding:30px;
-      border-radius:15px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .welcome{
-      font-size:28px;
-      color:#7b1e3a;
-      margin-bottom:15px;
-    }
-
-    .btn{
-      background:#7b1e3a;
-      color:white;
-      padding:12px 25px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      margin-top:20px;
-    }
-
-    .btn:hover{
-      background:#5e142c;
-    }
-
-  </style>
-</head>
-
-<body>
-
-  <div class="navbar">
-    <div class="logo">
-      <img src="images/college-logo.jpg" alt="Logo">
-      <h2>Pacifyca - St. Agnes College</h2>
-    </div>
-
-    <div>
-      Welcome, SHRINIDHI ALVA
-    </div>
-  </div>
-
-  <div class="container">
-
-    <div class="sidebar">
-      <h3>Student Menu</h3>
-
-      <ul>
-        <li>Fees</li>
-        <li>Quiz</li>
-        <li>Internal Marks Verification</li>
-        <li>Admission Card</li>
-        <li>Result</li>
-        <li>Exam Application</li>
-        <li>Feedback</li>
-        <li>Student Profile</li>
-      </ul>
-    </div>
-
-    <div class="main">
-
-      <div class="card">
-
-        <div class="welcome">
-          Hello, SHRINIDHI ALVA 👋
-        </div>
-
-        <p>
-          Welcome to Pacifyca - St. Agnes College Student Portal.
-        </p>
-
+    if(text === "Fees"){
+      welcome.innerHTML = `
+        <h2 style="color:#7b1e3a;">Fees Details</h2>
         <br>
+        <table border="1" cellpadding="10" width="100%">
+          <tr>
+            <th>Fee Type</th>
+            <th>Date</th>
+            <th>Pending Amount</th>
+          </tr>
 
-        <p><strong>Register No:</strong> 24301908</p>
-        <p><strong>Course:</strong> B.C.A.</p>
-        <p><strong>Year:</strong> III YEAR</p>
-        <p><strong>Batch:</strong> B</p>
+          <tr>
+            <td>Admission Fees</td>
+            <td>15-05-2026</td>
+            <td>55,152.00</td>
+          </tr>
+        </table>
+      `;
+    }
 
-        <button class="btn">
-          Open Dashboard
-        </button>
+    else if(text === "Student Profile"){
+      welcome.innerHTML = `
+        <h2 style="color:#7b1e3a;">Student Profile</h2>
+        <br>
+        <p><b>Name:</b> SHRINIDHI ALVA</p>
+        <p><b>Course:</b> B.C.A.</p>
+        <p><b>Register No:</b> 24301908</p>
+        <p><b>Mobile:</b> 9538685958</p>
+      `;
+    }
 
-      </div>
+    else{
+      welcome.innerHTML = `
+        <h2 style="color:#7b1e3a;">${text}</h2>
+        <br>
+        <p>Nothing here</p>
+      `;
+    }
 
-    </div>
-
-  </div>
-
-</body>
-</html>
-```
+  });
+});
+</script>
